@@ -10,11 +10,15 @@
 	</parent>
 	<groupId>com.vpc.rest.api</groupId>
 	<artifactId>my-retail</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>my-retail</name>
 	<description>MyRetail service provides APIs to get/update product pricing data.</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.exclusions>
+			**/SpringBootDockerExampleApplication.java,
+			**/config/*.java
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -44,8 +48,6 @@
 			<artifactId>vertx-mongo-embedded-db</artifactId>
 			<version>3.9.8</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -86,6 +88,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.5.2</version>
 				<configuration>
 					<excludes>
 						<exclude>

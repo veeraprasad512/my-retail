@@ -18,7 +18,7 @@ public class PricingRepository {
 
     @PostConstruct
     public void saveProductDetails() {
-        List<PriceData> productPrizeDetailsList = new ArrayList<PriceData>();
+        List<PriceData> productPrizeDetailsList = new ArrayList<>();
         productPrizeDetailsList.add(new PriceData("13860428", new CurrentPrice(15.45, "USD")));
         productPrizeDetailsList.add(new PriceData("15117729", new CurrentPrice(13.45, "GBP")));
         productPrizeDetailsList.add(new PriceData("13264003", new CurrentPrice(18.45, "INR")));
