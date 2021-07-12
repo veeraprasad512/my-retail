@@ -20,14 +20,14 @@ public class RedSkyRestClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${redSkyTarget.uri:https://redsky.target.com/v3/pdp/tcin/}")
-    private String redSkyTargetUri;
+    @Value("${redSkyTarget.url:https://redsky.target.com/v3/pdp/tcin/}")
+    private String redSkyTargetUrl;
 
     public String invokeRedSkyApi (String productId) throws ApiException {
 
         String title;
         ResponseEntity<RedSkyResponse> responseEntity = null;
-        String finalUrl = new StringBuilder(redSkyTargetUri).append(productId).append(MyTargetRetailConstants.QUERY_PARAM).toString();
+        String finalUrl = new StringBuilder(redSkyTargetUrl).append(productId).append(MyTargetRetailConstants.QUERY_PARAM).toString();
 
         try {
             // Call product-data service to retrieve product name
