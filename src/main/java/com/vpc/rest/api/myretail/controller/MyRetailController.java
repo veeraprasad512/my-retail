@@ -103,7 +103,7 @@ public class MyRetailController {
 
             @Override
             public void onCompleted() {
-                log.info("Successfull completed");
+                log.info("Successfully completed");
             }
         };
 
