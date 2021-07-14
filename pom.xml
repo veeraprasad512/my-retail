@@ -47,7 +47,6 @@
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-mongo-embedded-db</artifactId>
 			<version>3.9.8</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
