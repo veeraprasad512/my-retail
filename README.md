@@ -52,7 +52,7 @@ To install your application in your local environment, run:
 ./mvnw install
 ```
 
-For more information, refer to the [Running tests page][].
+For more information, please contact veeraprasad512@gmail.com.
 
 [Doing microservices with SpringBoot]: https://spring.io/microservices/
 [Using SpringBoot in development]: https://spring.io/projects/spring-boot
