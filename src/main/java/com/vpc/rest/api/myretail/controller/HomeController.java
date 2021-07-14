@@ -10,6 +10,8 @@ public class HomeController {
 
     @GetMapping(value = "/")
     public String index() {
+
+        // This endpoint / is just to redirect to swagger-ui for easy access of swagger
         return "redirect:/swagger-ui.html";
     }
 

@@ -36,6 +36,10 @@ public class MyRetailController {
                 .fromCallable(new Callable<ProductDetailsResponse>() {
                     @Override
                     public ProductDetailsResponse call() throws ApiException {
+                        /*Invoke the PriceService to get complete productdetails.
+                        Internally priceService invokes target RedSky api using
+                        RestClient to get productName.
+                         */
                         return priceService.getProductDetails(id);
 
                     }
@@ -44,18 +48,20 @@ public class MyRetailController {
 
             @Override
             public void onNext(ProductDetailsResponse response) {
+                // On successful response from service layer set result in deferred result object
                 log.debug("Deferred result has received a response");
-                deferredResult.setResult(response); // Result is set to the
-                // DeferredResult
+                deferredResult.setResult(response);
             }
 
             @Override
             public void onCompleted() {
+                // Can be used to perform post actions
                 log.info("Successfully completed");
             }
 
             @Override
             public void onError(Throwable ex) {
+                // Executed on error from the service layer
                 ProductDetailsResponse productDetailsResponse = new ProductDetailsResponse(id, null, null, ex.getMessage());
                 log.error("Error while retrieving product details for {} is {}",id,ex.getMessage());
                 deferredResult.setErrorResult(
@@ -77,6 +83,10 @@ public class MyRetailController {
                     @Override
                     public PriceData call() throws ApiException {
                         if(id.equalsIgnoreCase(productDetailsResponse.getId())) {
+                            /*Invoke the PriceService to update priceDetails.
+                              First invokes the getProduct details API to get the product
+                              details and update them.
+                            */
                             PriceData priceData= priceService.updateProductPrice(productDetailsResponse);
                             return priceData;
                         }
@@ -89,12 +99,14 @@ public class MyRetailController {
         Subscriber<PriceData> productDetailsSubscriber = new Subscriber<PriceData>() {
             @Override
             public void onNext(PriceData response) {
+                // On successful response from service layer set result in deferred result object
                 log.debug("Deferred result has received a response");
                 deferredResult.setResult(response); // Result is set to the
                 // DeferredResult
             }
             @Override
             public void onError(Throwable ex) {
+                // Executed on error from the service layer
                 ProductDetailsResponse productDetailsResponse = new ProductDetailsResponse(id,null,null,ex.getMessage());
                 log.error("Error while retrieving product details for {} is {}",id,ex.getMessage());
                 deferredResult.setErrorResult(
@@ -103,6 +115,7 @@ public class MyRetailController {
 
             @Override
             public void onCompleted() {
+                // Can be used to perform post actions
                 log.info("Successfully completed");
             }
         };
