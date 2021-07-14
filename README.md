@@ -10,6 +10,8 @@ This microservice (my-retail) uses embedded mongodb as backend database which is
 
 For development purposes, sample data is being inserted into embedded mongo from the repository layer after @PostConstruct of the bean.
 
+For more details on API endpoints and usage, please refer to swagger UI after starting the application at [Swagger UI][].
+
 ## Development
 
 To start your application in the default profile, run:
@@ -52,8 +54,10 @@ To install your application in your local environment, run:
 ./mvnw install
 ```
 
-For more information, refer to the [Running tests page][].
+For more information, please contact veeraprasad512@gmail.com.
 
 [Doing microservices with SpringBoot]: https://spring.io/microservices/
 [Using SpringBoot in development]: https://spring.io/projects/spring-boot
 [SpringBoot Docs]: https://docs.spring.io/initializr/docs/current/reference/html/
+[Swagger UI]: http://localhost:8500/
+
